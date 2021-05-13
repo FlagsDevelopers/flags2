@@ -13,3 +13,40 @@
  */
 
 /* Insert your code */
+
+// Όλες οι χώρες θα έχουν αυτή την δομή
+class Country {
+  constructor(name="", code2="", code3="") {
+    this.name = name;
+    this.code2 = code2;
+    this.code3 = code3;
+    this.hasBorders = false;
+    this.flag = ""; // Είμαι υπό σκέψη για το αν χρειάζεται αυτό.
+  }
+}
+// Εκτός από την τρέχον χώρα που θα έχει και το borders (ένα πίνακα με τις χώρες που συνορεύει).
+class CurrentCountry extends Country {
+  constructor(borders) {
+    super(borders)
+    this.borders = []
+  }
+  //noOfBorders = length
+  get noOfBorders() { //Επιστρέφει τον αριθμό των χωρών που συνορεύει.
+    console.log(this.borders.length);
+    return this.borders.length;
+  }
+}
+
+// Κλάση για να μετράμε το score.
+class Score {
+  constructor() {
+    this.score = 0;
+  }
+  increaseScore() {
+    this.score += 5;
+  }
+  decreaseScore() {
+    this.score -= 3;
+  }
+}
+
