@@ -24,7 +24,7 @@ class Country {
     this.flag = ""; // Είμαι υπό σκέψη για το αν χρειάζεται αυτό.
   }
 }
-// Εκτός από την τρέχον χώρα που θα έχει και το borders (ένα πίνακα με τις χώρες που συνορεύει).
+// Εκτός από την τρέχουσα χώρα που θα έχει και το borders (ένα πίνακα με τις χώρες που συνορεύει).
 class CurrentCountry extends Country {
   constructor(borders) {
     super(borders)
