@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flags2</title>
     <link rel="icon" type="image/svg+xml" sizes="any" href="img/country-map-blank.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js">
     </script>
@@ -15,10 +17,20 @@
     <!-- Insert your HTML code -->
     <div id="game-panel">
         <div id="sidebar">
-            Πλευρική μπάρα
+            <h1>Βρες τους γείτονες</h1>
+            <div class="round-line">Γύρος: <span class="round">1</span></div>
+            <div class="score-line">Σκορ: <span class="score">0<span></div>
+            <div class="buttons">
+                <button id="btn-next-round" disabled>Επόμενη χώρα</button>
+                <button id="btn-new-game">Νέο παιχνίδι</button>
+            </div>
         </div>
         <div id="playing-country">
-            Η τρέχουσα χώρα με την οποία παίζουμε.
+            <span id="my-country-flag"></span>
+            <span id="my-country-name">Loading...</span>
+        </div>
+        <div id="stickTop">
+            <progress id="progress" value="0" max="100"></progress>
         </div>
         <div id="potential-neighbors">
             Κάποιες από αυτές τις χώρες γειτονεύουν με την τρέχουσα χώρα.
