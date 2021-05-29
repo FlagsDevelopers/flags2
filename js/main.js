@@ -13,22 +13,26 @@
  */
 
 /* Insert your code */
+"use strict"
+const urlCountry = 'https://restcountries.eu/rest/v2/name/';
+const urlCode = 'https://restcountries.eu/rest/v2/alpha/';
 
-// Όλες οι χώρες θα έχουν αυτή την δομή
+
+// Όλες οι χώρες θα έχουν αυτή την δομή.
 class Country {
   constructor(name="", code2="", code3="") {
     this.name = name;
     this.code2 = code2;
     this.code3 = code3;
     this.hasBorders = false;
-    this.flag = ""; // Είμαι υπό σκέψη για το αν χρειάζεται αυτό.
+    this.flag = ""; // CHECK Είμαι υπό σκέψη για το αν χρειάζεται αυτό.
   }
 }
-// Εκτός από την τρέχον χώρα που θα έχει και το borders (ένα πίνακα με τις χώρες που συνορεύει).
+// Εκτός από την τρέχουσα χώρα που θα έχει και το borders (ένα πίνακα με τις χώρες που συνορεύει).
 class CurrentCountry extends Country {
   constructor(borders) {
-    super(borders)
-    this.borders = []
+    super(borders) //CHECK
+    this.borders = [] //CHECK
   }
   //noOfBorders = length
   get noOfBorders() { //Επιστρέφει τον αριθμό των χωρών που συνορεύει.
@@ -42,11 +46,15 @@ class Score {
   constructor() {
     this.score = 0;
   }
-  increaseScore() {
+  get value() {
+    return this.score
+  }
+  get increase() { 
     this.score += 5;
   }
-  decreaseScore() {
+  get decrease() {
     this.score -= 3;
   }
 }
 
+let myCountry = new CurrentCountry();
