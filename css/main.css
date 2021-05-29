@@ -1,1 +1,162 @@
 /* Insert your css declarations */
+
+@font-face {
+    font-family: "TwemojiMozilla";
+    src: url("TwemojiMozilla.ttf");
+  }
+  
+  body {
+    margin: 40px;
+    font-family: "Open Sans", "TwemojiMozilla";
+    /* Η γραμματοσειρά open sans φορτώνεται στο αρχείο html */
+    background-color: #fff;
+    color: #444;
+  }
+  
+  #game-panel {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-gap: 10px;
+  }
+  
+  @media (max-width: 800px) {
+    .game-panel {
+      grid-template-columns: auto;
+    }
+  }
+  
+  #sidebar {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #ff1493; /* DeepPing #ff1493 */
+    border-radius: 5px;
+    padding: 1em;
+  }
+  
+  .score-line,
+  .round-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: x-large;
+  }
+  
+  .buttons {
+    line-height: 5em;
+  }
+  
+  /* στοιχίζει τα πλήκτρα στο κάτω μέρος του sidebar*/
+  .buttons:last-of-type {
+    margin-top: auto;
+  }
+  
+  #sidebar button {
+    font-size: small;
+    width: 100%;
+    line-height: 4em;
+  }
+  
+  #playing-country {
+    display: flex;
+    align-items: center;
+    background-color: #708090; /* SlateGray #708090 */
+    color: white;
+    border-radius: 5px;
+  }
+  
+  #my-country-flag {
+    font-size: 6em;
+    padding: 0 0.4em;
+    text-shadow: 0 0 10px white;
+  }
+  
+  #my-country-name {
+    font-size: 2.5em;
+  }
+  
+  #potential-neighbors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* space-evenly */
+    padding: 5px;
+  }
+  
+  .neighbour {
+    width: 150px;
+    margin: 10px;
+    padding: 1em;
+    text-align: center;
+    border-radius: 10px;
+    /* border: 3px solid blue;  */
+  }
+  
+  .neighbour-flag {
+    font-size: 8em;
+    text-shadow: 0 0 10px black;
+  }
+  
+  .neighbour-name {
+    /* font-size: 1em; */
+  }
+  
+  .was-clicked.neighbour-is-valid {
+    border: 3px solid #90bc90; /* #90bc90 green */
+    background-color: #f5f5f5;
+  }
+  
+  .was-clicked.neighbour-is-invalid {
+    border: 3px solid #dc153d; /* #dc153d red */
+    background-color: #f5f5f5;
+  }
+  
+  .neighbour:not(.was-clicked) {
+    border: 3px solid transparent; /* Δέσμευση χώρου, για να μην αλλοιώνεται η διάταξη όταν μπαίνει border */
+  }
+  
+  #container {
+    /* Περιλαμβάνει τα #next-round-panel και #neighbours-panel 
+    Για να επικαλυφθεί το #neighbours-panel από το #next-round-panel 
+    πρέπει το #container να έχει position: relative
+    και το #next-round-panel να έχει posistion: absolute */
+    position: relative;
+  }
+  
+  #next-round-panel {
+    /* Ημιδιαφανής κάρτα πάνω στους γείτονες, όταν λήγει ο γύρος */
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(150, 150, 150, 0.8);
+    border-radius: 5px;
+    font-size: xx-large;
+    font-weight: 900;
+    /* Center the text */
+    display: none; /* Γίνεται flex με δυναμικά */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* container του progress. Το sticky δεν δουλεύει αν μπει κατευθείαν στο #progress */
+  #stickTop { 
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  #progress {
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  #progress::-webkit-progress-value {
+    background: #0064b4; /* some blue */
+  }
+  
+  #progress::-webkit-progress-bar {
+    background: lightgray;
+    border-radius: 5px;
+  }
+  
