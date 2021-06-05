@@ -7,16 +7,73 @@
     <title>Flags2</title>
     <link rel="icon" type="image/svg+xml" sizes="any" href="img/country-map-blank.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js">
+    <script src="js/countries.js"></script>
+    <script src="js/main.js" defer>
     </script>
+<script>
+        // Ένας βοηθητικός πίνακας που θα περιέχει τις χώρες από το countries.js σε λίγο πιο βολική μορφή
+        const allCountries = new Array();
+        // πχ. allCountries['GRE'] = { code2: "GR", name: "Greece"}, ή κάτι παρόμοιο 
+        
+        
+        // Γέμισμα του βοηθητικού πίνακα allCountries με τις χώρες από το countries.js σε μορφή GRE: { code2: "GR", name: "Greece"}
+        countryObjects.forEach(country => {
+            allCountries.push(country.code3)
+            allCountries[country.code3] = {
+                code2: country.code,
+                name: country.name
+            }
+        })
+        // console.log(allCountries); //DELETE
+
+        // Εδώ μπορείτε να βάλετε τον κώδικα για όλο το παιχνίδι
+        // Μπορείτε γράψετε κλάσεις που να έχουν κάποια συμπεριφορά, 
+        // π.χ. Game, PlayingCountry, Neighbour, ...
+        // ή να και ακολουθήσετε άλλη τακτική, που να σας είναι πιο προσιτή
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            //start a new Game
+            //...
+            mycountry = new PlayingCountry("GRC");
+            mycountry.display();
+            console.log(mycountry);
+            greece = new Neighbour("GRC",true);
+            greece.display();
+            console.log(greece);
+            const game = new Game() //TODO
+            console.log(game);
+
+            //event listener to new game button
+            document.querySelector("#btn-new-game").addEventListener("click", () => {
+                // ...
+                // Κάνει reset //TODO
+                // Παίζει νέο παιχνίδι. //TODO
+            })
+
+            //event listener to next round button
+            document.querySelector("#btn-next-round").addEventListener("click", () => {
+                // ...
+                // Καθαρίζει την οθόνη //TODO
+                // Εμφανίζει τον επόμενο γύρο. // TODO
+                // game.nextRound()
+            })
+
+        });
+    </script>
+
+
 </head>
 
 <body>
     <!-- Insert your HTML code -->
     <div id="game-panel">
-        <div id="sidebar">
+        <section id="sidebar">
             <h1>Βρες τους γείτονες</h1>
             <div class="round-line">Γύρος: <span class="round">1</span></div>
             <div class="score-line">Σκορ: <span class="score">0<span></div>
@@ -24,22 +81,26 @@
                 <button id="btn-next-round" disabled>Επόμενη χώρα</button>
                 <button id="btn-new-game">Νέο παιχνίδι</button>
             </div>
-        </div>
+        </section>
         <div id="playing-country">
             <span id="my-country-flag"></span>
-            <span id="my-country-name">Loading...</span>
+            <span id="my-country-name"></span>
         </div>
         <div id="stickTop">
             <progress id="progress" value="0" max="100"></progress>
         </div>
-        <div id="potential-neighbors">
-            Κάποιες από αυτές τις χώρες γειτονεύουν με την τρέχουσα χώρα.
-        </div>
+        <section id="neighbours-panel">
+        </section>
     </div>
 
 
     <!-- Link to development site https://github.com/FlagsDevelopers/flags2 -->
     <p><a href="https://github.com/FlagsDevelopers/flags2">Flags2 development</a></p>
 </body>
-
+<script>
+//Το παρακάτω αφορά μόνο τους χρήστες macOS.
+if (navigator.appVersion.indexOf("Macintosh")>0){
+  document.body.style.fontFamily = '"Open Sans"';
+}
+</script>
 </html>
