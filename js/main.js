@@ -110,7 +110,7 @@ class Neighbour extends Country {
     if (this.isReal) {
         element.classList.add("neighbour-is-Real")
     } else {
-        element.classList.add("neighbour-is-not-Real")
+        element.classList.add("neighbour-is-Fake")
     }
     return element
   }
