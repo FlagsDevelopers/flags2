@@ -26,9 +26,9 @@
 *********************************/
 const urlCountry = 'https://restcountries.eu/rest/v2/name/';
 const urlCode = 'https://restcountries.eu/rest/v2/alpha/';
-const myCountryFlagDiv = document.getElementById("my-country-flag");
-const myCountryNameDiv = document.getElementById("my-country-name");
-const neighboursPanelDiv = document.getElementById("neighbours-panel");
+const myCountryFlagDiv = document.querySelector("#my-country-flag");
+const myCountryNameDiv = document.querySelector("#my-country-name");
+const neighboursPanelDiv = document.querySelector("#neighbours-panel");
 
 
 
