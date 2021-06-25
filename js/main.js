@@ -11,13 +11,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-/* Insert your code */
+
 "use strict"
 /**
- * - Για λόγους ευκολίας μας οι σημειώσεις είναι στα Ελληνικά. Αυτό θα αλλάξει στο τέλος.
- * - Στις σημειώσεις υπάρχουν κάποιες λέξεις κλειδιά που αρχίζουν με @ και αυτές χρειάζονται για να μπορεί αργότερα το <https://jsdoc.app/> ή και άλλα εργαλεία να δημιουργήσει documentation βάσει του κώδικα. Επίσης αν χρησιμοποιείτε VS Code και βάλετε το mouse πάνω στην κλάση εμφανίζονται οι σημειώσεις υπό μορφή βοήθειας.
- * - Οι κλάσεις και οι μέθοδοι είναι υπό κατασκευή. Μπορεί στην πορεία να αλλάξει κάτι.
- * Ο λόγος που άλλαξα τις κλάσεις είναι για την ομαλότερη μετάβαση στην έκδοση 2.
+ * Στα σχόλια, οι λέξεις κλειδιά που αρχίζουν με @ χρειάζονται για να μπορεί αργότερα
+ * το <https://jsdoc.app/> ή και άλλα εργαλεία, να δημιουργήσουν αυτόματα documentation.
+ * Επίσης στο VS Code, με mouseover στην κλάση, εμφανίζονται τα σχόλια με μορφή βοήθειας.
  */
 
 
@@ -31,7 +30,6 @@ const myCountryNameDiv = document.querySelector("#my-country-name");
 const neighboursPanelDiv = document.querySelector("#neighbours-panel");
 
 
-
 /*******************
 * Δηλώσεις κλάσεων *
 *******************/
@@ -41,7 +39,7 @@ const neighboursPanelDiv = document.querySelector("#neighbours-panel");
  * @param {string} code3 Είναι ο 3ψήφιος κωδικός χώρας
  * @example greece = new Country("GRC");
  * @author George Varelas <prophitis@gmail.com>
- */
+*/
 class Country {
   constructor(code3) {
     this.code3 = code3;
@@ -137,59 +135,3 @@ class Game {
 
   }
 }
-
-
-
-
-
-
-
-
-
-/**
- * Αυτό το κώδικα τον αφήνω για λόγους σύγκρισης με τον νέο κώδικα. Σε δεύτερη φάση θα διαγραφεί από εδώ και κάτω.
- */
-
-
-/** 
-// Όλες οι χώρες θα έχουν αυτή την δομή.
-class Country {
-  constructor(name="", code2="", code3="") {
-    this.name = name;
-    this.code2 = code2;
-    this.code3 = code3;
-    this.hasBorders = false;
-    this.flag = ""; // CHECK Είμαι υπό σκέψη για το αν χρειάζεται αυτό.
-  }
-}
-// Εκτός από την τρέχουσα χώρα που θα έχει και το borders (ένα πίνακα με τις χώρες που συνορεύει).
-class CurrentCountry extends Country {
-  constructor(borders) {
-    super(borders) //CHECK
-    this.borders = [] //CHECK
-  }
-  //noOfBorders = length
-  get noOfBorders() { //Επιστρέφει τον αριθμό των χωρών που συνορεύει.
-    console.log(this.borders.length);
-    return this.borders.length;
-  }
-}
-
-// Κλάση για να μετράμε το score.
-class Score {
-  constructor() {
-    this.score = 0;
-  }
-  get value() {
-    return this.score
-  }
-  get increase() { 
-    this.score += 5;
-  }
-  get decrease() {
-    this.score -= 3;
-  }
-}
-
-let myCountry = new CurrentCountry();
-*/
