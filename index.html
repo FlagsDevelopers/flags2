@@ -12,22 +12,29 @@
     <script src="js/countries.js"></script>
     <script src="js/main.js" defer>
     </script>
-<script>
+    <script>
         // Ένας βοηθητικός πίνακας που θα περιέχει τις χώρες από το countries.js σε λίγο πιο βολική μορφή
         const allCountries = new Array();
         // πχ. allCountries['GRE'] = { code2: "GR", name: "Greece"}, ή κάτι παρόμοιο 
-        
-        
-        // Γέμισμα του βοηθητικού πίνακα allCountries με τις χώρες από το countries.js σε μορφή GRE: { code2: "GR", name: "Greece"}
+
+
+        // Γέμισμα του βοηθητικού πίνακα allCountries με τις χώρες από το countries.js 
+        // σε μορφή [GRE: { code2: "GR", name: "Greece"}, ]
         countryObjects.forEach(country => {
+            //console.log("countryObjects: ", country.code3, country.code, country.name)
             allCountries.push(country.code3)
             allCountries[country.code3] = {
                 code2: country.code,
                 name: country.name
             }
+            //console.log("allCountries item: ", allCountries[country.code3]);
         })
-        // console.log(allCountries); //DELETE
 
+        // Ανακάτεμα του βοηθητικού πίνακα
+        shuffleArray(allCountries)
+
+        console.log("allCountries: ", allCountries); //DELETE
+        
         // Εδώ μπορείτε να βάλετε τον κώδικα για όλο το παιχνίδι
         // Μπορείτε γράψετε κλάσεις που να έχουν κάποια συμπεριφορά, 
         // π.χ. Game, PlayingCountry, Neighbour, ...
@@ -41,15 +48,37 @@
             //start a new Game
             //...
 
+
+
             // Είναι απλά ένα παράδειγμα λειτουργίας των κλάσεων //DELETE
-            mycountry = new PlayingCountry("GRC");
+
+            // Ο πίνακας allCountries είναι ήδη ανακατεμένος
+            // myCountryIndex δείχνει από ποια θέση του πίνακα θα πάρουμε την επόμενη χώρα με την οποία θα παίξουμε
+            // myNeighbourIndex δείχνει από ποια θέση του πίνακα θα πάρουμε την επόμενη χώρα που θα είναι πιθανός γείτονας.
+            
+            // Χρειάζονται έλεγχοι: 
+            // α) για να μην υπάρχει η ίδια χώρα δύο φορές και
+            // β) για να ανακατεύεται ξανά ο πίνακας όταν πλησιάζουμε στο τέλος του.
+
+            var myCountryIndex = 0;
+            randomCountry = allCountries[myCountryIndex];
+            console.log("randomCountry: ", randomCountry);
+            
+            mycountry = new PlayingCountry(randomCountry);
             mycountry.display();
-            console.log(mycountry);
-            greece = new Neighbour("GRC",true);
+            console.log("mycountry: ", mycountry);
+            
+            var myNeighboursIndex = 1;
+            randomCountry = allCountries[myNeighboursIndex];
+            neighbour = new Neighbour(randomCountry, true);
+            neighbour.display();
+            console.log("neighbour: ", neighbour);
+
+            greece = new Neighbour("GRC", true);
             greece.display();
-            console.log(greece);
+            console.log("greece: ", greece);
             const game = new Game() //TODO
-            console.log(game);
+            console.log("game: ", game);
 
             //event listener to new game button
             document.querySelector("#btn-new-game").addEventListener("click", () => {
@@ -100,9 +129,10 @@
     <p><a href="https://github.com/FlagsDevelopers/flags2">Flags2 development</a></p>
 </body>
 <script>
-//Το παρακάτω αφορά μόνο τους χρήστες macOS.
-if (navigator.appVersion.indexOf("Macintosh")>0){
-  document.body.style.fontFamily = '"Open Sans"';
-}
+    //Το παρακάτω αφορά μόνο τους χρήστες macOS.
+    if (navigator.appVersion.indexOf("Macintosh") > 0) {
+        document.body.style.fontFamily = '"Open Sans"';
+    }
 </script>
+
 </html>
